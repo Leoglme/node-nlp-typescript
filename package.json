@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "publish": "npm version minor && npm publish",
+    "version": "npm version patch",
+    "publish": "npm publish",
+    "release": "npm run version && npm run publish",
     "watch": "npx tsc --watch"
   },
   "repository": {
