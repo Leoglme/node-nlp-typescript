@@ -27,7 +27,7 @@ jobs:
           npm version patch
           git add .
           git commit -m "🤖 Bump version to $(npm --silent version)"
-          git push origin
+          git push
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
