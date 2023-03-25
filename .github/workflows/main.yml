@@ -23,7 +23,7 @@ jobs:
       - name: Configure Git Identity
         run: |
           git config --global user.email "leo.guillaume@epitech.eu"
-          git config --global user.name "Bot"
+          git config --global user.name "Leoglme"
       - name: Increase package version ↗️
         run: |
           npm version patch -m "🤖 Bump version to %s"
