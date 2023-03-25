@@ -16,6 +16,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies and build 🔧
         run: npm ci && npm run build
+      - name: Configure Git Identity
+        run: |
+          git config --global user.email "contact@dibodev.com"
+          git config --global user.name "Bot"  
       - name: Increase package version ↗️
         run: npm version patch
         env:
