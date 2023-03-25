@@ -38,6 +38,7 @@ jobs:
         id: create_tag
         run: |
           VERSION=$(node -p "require('./package.json').version")
+          echo $VERSION
           git push --tags
           echo "::set-output name=version::v$VERSION"
         env:
