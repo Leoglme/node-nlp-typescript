@@ -25,9 +25,11 @@ jobs:
       - name: Increase package version ↗️
         run: |
           npm version patch
+          git status
           git add .
           git commit -m "🤖 Bump version to $(npm --silent version)"
-          git push
+          git push -u origin main
+          git status
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
