@@ -24,7 +24,8 @@ jobs:
           git config --global user.name "Bot"
       - name: Increase package version ↗️
         run: |
-          npm version patch -m "🤖 Bump version to %s"
+          npm version patch -m "🤖 Bump version to %s --dry-run"
+          git diff
           git add package.json
           git commit -m "🤖 Bump version to %s"
           git push
