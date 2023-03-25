@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "publish": "sh scripts/publish-npm.sh",
     "watch": "npx tsc --watch"
   },
   "repository": {
