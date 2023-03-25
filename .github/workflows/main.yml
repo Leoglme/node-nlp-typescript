@@ -31,10 +31,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
         run: echo 'Release v${{ steps.package-version.outputs.version }}'
-        with:
-          body: 'Release v${{ steps.package-version.outputs.version }}'
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
