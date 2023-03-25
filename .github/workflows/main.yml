@@ -25,19 +25,32 @@ jobs:
           git config --global user.email "contact@dibodev.com"
           git config --global user.name "Bot"
       - name: Increase package version ↗️
-        id: increase_version
         run: |
           npm version patch -m "🤖 Bump version to %s"
-          git push --tags
-          VERSION=%s
-          echo "Tag 'v$VERSION' => %s" 
+          git add .
+          git commit -m "🤖 Bump version to %s" || echo "No changes to commit"
+          git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/Leoglme/node-nlp-typescript.git
+          git push
+          npm version patch -m "🤖 Bump version to %s"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Create Release Tag
+        id: create_tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if ! git rev-parse "v$VERSION" >/dev/null 2>&1; then
+            git tag "v$VERSION"
+            git push --tags
+          else
+            echo "Tag 'v$VERSION' already exists"
+          fi
           echo "::set-output name=version::v$VERSION"
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
-          body: 'Release ${{ steps.increase_version.outputs.version }}'
+          body: 'Release ${{ steps.create_tag.outputs.version }}'
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
