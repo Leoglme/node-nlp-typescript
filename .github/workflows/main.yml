@@ -26,8 +26,8 @@ jobs:
           git config --global user.name "Bot"
       - name: Increase package version ↗️
         run: |
-          npm version patch -m "🤖 Bump version to %s"
-          git add package.json
+          npm version patch -m "🤖 Bump version tossss %s"
+          git add .
           git commit -m "🤖 Bump version to %s" || echo "No changes to commit"
           git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/Leoglme/node-nlp-typescript.git
           git push
@@ -35,8 +35,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Create Release Tag
         run: |
-          VERSION=$(node -p "require('./package.json').version")
-          git tag "v$VERSION"
           git push --tags
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
