@@ -33,6 +33,19 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Create Release Tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          git tag "v$VERSION"
+          git push --tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body: 'Release v${{ steps.package-version.outputs.version }}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
         run: npm publish --access public
         env:
