@@ -38,8 +38,9 @@ jobs:
         id: create_tag
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          echo $VERSION
-          git push --tags
+          VERSIOND=$(node -p "require('./package.json')")
+          echo "la version est: $VERSION"
+          echo "la version estd: $VERSIOND"
           echo "::set-output name=version::v$VERSION"
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
