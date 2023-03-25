@@ -33,7 +33,7 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      - name: Create Release Tag
+      - name: Create Release Tag 🏷️
         id: create_tag
         run: |
           VERSION=$(node -p "require('./package.json').version")
@@ -41,10 +41,10 @@ jobs:
           echo "version=v$VERSION" >> $GITHUB_OUTPUT
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      - name: Create GitHub Release
-        run: |
-          TOTO='machin'
-          echo "Release $GITHUB_OUTPUT $TOTO PODEF: ${{steps.create_tag.outputs.version}}"
+      - name: Create GitHub Release 🏷️
+        uses: softprops/action-gh-release@v1
+        with:
+          body: 'Release v${{steps.create_tag.outputs.version}}'
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
