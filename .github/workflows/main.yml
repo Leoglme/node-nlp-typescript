@@ -23,17 +23,10 @@ jobs:
           git config --global user.email "contact@dibodev.com"
           git config --global user.name "Bot"
       - name: Increase package version ↗️
-        run: |
-          git pull origin main
-          npm version patch
-          git add .
-          git commit -m "🤖 Bump version to $(npm --silent version)"
-          git push origin main
-          git tag $(npm --silent version)
-          git push origin $(npm --silent version)
+        run: npm version patch -m "🤖 Bump version to %s"
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
