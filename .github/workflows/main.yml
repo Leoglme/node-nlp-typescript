@@ -22,13 +22,15 @@ jobs:
         run: npm ci && npm run build
       - name: Configure Git Identity
         run: |
-          git config --global user.email "leo.guillaume@epitech.eu"
-          git config --global user.name "Leoglme"
+          git config --global user.email "contact@dibodev.com"
+          git config --global user.name "Bot"
       - name: Increase package version ↗️
         run: |
           npm version patch -m "🤖 Bump version to %s"
           git add package.json
+          echo ${{ secrets.ACCESS_TOKEN }}
           git commit -m "🤖 Bump version to %s" || echo "No changes to commit"
+          git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/Leoglme/node-nlp-typescript.git
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
