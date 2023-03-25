@@ -27,19 +27,12 @@ jobs:
       - name: Increase package version ↗️
         run: |
           npm version patch -m "🤖 Bump version tossss %s"
-          git add .
-          git commit -m "🤖 Bump version to %s" || echo "No changes to commit"
-          git remote set-url origin https://${{ secrets.ACCESS_TOKEN }}@github.com/Leoglme/node-nlp-typescript.git
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      - name: Create Release Tag
-        run: |
           git push --tags
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
+        run: echo 'Release v${{ steps.package-version.outputs.version }}'
         with:
           body: 'Release v${{ steps.package-version.outputs.version }}'
         env:
