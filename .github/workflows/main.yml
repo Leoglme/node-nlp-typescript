@@ -24,12 +24,13 @@ jobs:
           git config --global user.name "Bot"
       - name: Increase package version ↗️
         run: |
+          git pull origin main
           npm version patch
-          git status
           git add .
           git commit -m "🤖 Bump version to $(npm --silent version)"
-          git push -u origin main
-          git status
+          git push origin main
+          git tag $(npm --silent version)
+          git push origin $(npm --silent version)
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
