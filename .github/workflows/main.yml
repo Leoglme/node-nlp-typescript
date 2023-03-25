@@ -42,7 +42,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Create GitHub Release
-        run: echo "Release $GITHUB_OUTPUT"
+        run: |
+          TOTO=$('machin')
+          echo "Release $GITHUB_OUTPUT $TOTO"
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
