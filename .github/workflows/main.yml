@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
@@ -25,11 +27,8 @@ jobs:
       - name: Increase package version ↗️
         run: |
           npm version patch -m "🤖 Bump version to %s"
-          for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "Do something with this ${changed_file}."
-          done
           git add package.json
-          git commit -m "🤖 Bump version to %s"
+          git commit -m "🤖 Bump version to %s" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
