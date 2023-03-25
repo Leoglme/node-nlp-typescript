@@ -19,7 +19,7 @@ jobs:
       - name: Increase package version ↗️
         run: npm version patch
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }  
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - name: Publish package on NPM 📦
         run: npm publish
         env:
