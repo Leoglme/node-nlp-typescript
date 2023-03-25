@@ -22,7 +22,7 @@ jobs:
         run: npm ci && npm run build
       - name: Configure Git Identity
         run: |
-          git config --global user.email "contact@dibodev.com"
+          git config --global user.email "leo.guillaume@epitech.eu"
           git config --global user.name "Bot"
       - name: Increase package version ↗️
         run: |
