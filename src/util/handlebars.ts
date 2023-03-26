@@ -21,30 +21,14 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Language } from './language'
-import { NlpUtil, NlpManager, NlpExcelReader } from './nlp'
-import { XTableUtils, XTable, XDoc } from './xtables'
-import { removeEmojis, Evaluator, SpellCheck, Handlebars } from './util'
+import { compile } from '@nlpjs/evaluator'
+
+class Handlebars {
+  static compile(str: string) {
+    return compile(str);
+  }
+}
 
 export {
-    Language,
-    NlpUtil,
-    NlpManager,
-    NlpExcelReader,
-    XTableUtils,
-    XTable,
-    XDoc,
-    removeEmojis,
-    Evaluator,
-    SpellCheck,
-    Handlebars,
-    // ActionManager,
-    // NlgManager,
-    // NeuralNetwork,
-    // SentimentAnalyzer,
-    // SentimentManager,
-    // Recognizer,
-    // ConversationContext,
-    // MemoryConversationContext,
-    // BrainNLU,
+  Handlebars,
 };

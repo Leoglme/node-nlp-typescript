@@ -21,30 +21,14 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Language } from './language'
-import { NlpUtil, NlpManager, NlpExcelReader } from './nlp'
-import { XTableUtils, XTable, XDoc } from './xtables'
-import { removeEmojis, Evaluator, SpellCheck, Handlebars } from './util'
+import { SpellCheck as SpellCheckBase, SpellCheckSettings } from '@nlpjs/similarity';
 
-export {
-    Language,
-    NlpUtil,
-    NlpManager,
-    NlpExcelReader,
-    XTableUtils,
-    XTable,
-    XDoc,
-    removeEmojis,
-    Evaluator,
-    SpellCheck,
-    Handlebars,
-    // ActionManager,
-    // NlgManager,
-    // NeuralNetwork,
-    // SentimentAnalyzer,
-    // SentimentManager,
-    // Recognizer,
-    // ConversationContext,
-    // MemoryConversationContext,
-    // BrainNLU,
-};
+class SpellCheck extends SpellCheckBase {
+  constructor(settings: SpellCheckSettings = {}) {
+    const features = Array.isArray(settings) ? settings : settings.features;
+    super({ features });
+  }
+}
+
+export { SpellCheck };
+
