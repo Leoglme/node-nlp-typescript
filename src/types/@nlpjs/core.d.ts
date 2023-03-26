@@ -57,10 +57,24 @@ declare module '@nlpjs/core' {
 
     export function ArrToObj<T extends Obj>(arr: T[], keyField: keyof T): { [key: string]: T };
 
-    export function Clonable(Base: new () => any): new () => any;
+    export class Clonable<T = any> {
+        constructor(settings?: any, container?: any);
+        readonly container: any;
+        readonly settings: T;
+        applySettings(target: any, source: any): void;
+        getPipeline(name: string): any[];
+        clone(): Clonable<T>;
+    }
 
     export class Container {
         constructor(options?: ContainerOptions);
+
+        register<T>(
+            id: string,
+            obj: T,
+            singleton?: boolean,
+            force?: boolean
+        ): void;
 
         addStemmer(lang: Language, stemmer: StemmerFunction): void;
 
