@@ -21,10 +21,42 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Language } from './language';
-import { NlpUtil } from './nlp';
+declare module "@nlpjs/language" {
+    interface Scripts {
+        [key: string]: RegExp;
+        cmn: RegExp;
+        Latin: RegExp;
+        Cyrillic: RegExp;
+        Arabic: RegExp;
+        ben: RegExp;
+        Devanagari: RegExp;
+        jpn: RegExp;
+        kor: RegExp;
+        tel: RegExp;
+        tam: RegExp;
+        guj: RegExp;
+        kan: RegExp;
+        mal: RegExp;
+        Myanmar: RegExp;
+        ori: RegExp;
+        pan: RegExp;
+        Ethiopic: RegExp;
+        tha: RegExp;
+        sin: RegExp;
+        ell: RegExp;
+        khm: RegExp;
+        hye: RegExp;
+        sat: RegExp;
+        bod: RegExp;
+    }
 
-export {
-    Language,
-    NlpUtil
-};
+    interface Language {
+        readonly scripts: Scripts;
+        readonly languageData: Array<Array<string>>;
+        readonly data: { [key: string]: { [key: string]: string } };
+    }
+
+
+    const language: Language;
+    export = language;
+}

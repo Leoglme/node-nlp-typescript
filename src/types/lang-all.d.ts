@@ -21,10 +21,12 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Language } from './language';
-import { NlpUtil } from './nlp';
+declare module "@nlpjs/lang-all" {
+    interface LangAll {
+        [key: string]: any;
+    }
 
-export {
-    Language,
-    NlpUtil
-};
+
+    const LangAll: LangAll;
+    export = LangAll;
+}

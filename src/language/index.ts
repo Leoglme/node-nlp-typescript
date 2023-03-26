@@ -21,10 +21,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Language } from './language';
-import { NlpUtil } from './nlp';
+import Language from '@nlpjs/language';
 
 export {
-    Language,
-    NlpUtil
+  Language,
 };
