@@ -22,10 +22,15 @@
  */
 
 import { Language } from './language';
-import { NlpUtil, NlpManager } from './nlp';
+import { NlpUtil, NlpManager, NlpExcelReader } from './nlp';
+import { XTableUtils, XTable, XDoc } from './xtables';
 
 export {
     Language,
     NlpUtil,
-    NlpManager
+    NlpManager,
+    NlpExcelReader,
+    XTableUtils,
+    XTable,
+    XDoc,
 };

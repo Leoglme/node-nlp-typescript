@@ -21,12 +21,10 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import NlpUtil from './nlp-util';
-import NlpManager from './nlp-manager';
-import NlpExcelReader from './nlp-excel-reader';
+import { XTableUtils, XTable, XDoc } from '@nlpjs/xtables';
 
 export {
-    NlpUtil,
-    NlpManager,
-    NlpExcelReader
-}
+  XTableUtils,
+  XTable,
+  XDoc,
+};
