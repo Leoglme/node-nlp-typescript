@@ -22,9 +22,10 @@
  */
 
 import { Language } from './language';
-import { NlpUtil } from './nlp';
+import { NlpUtil, NlpManager } from './nlp';
 
 export {
     Language,
-    NlpUtil
+    NlpUtil,
+    NlpManager
 };

@@ -21,10 +21,27 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import NlpUtil from './nlp-util';
-import NlpManager from './nlp-manager';
+import { SentimentAnalyzer as SentimentAnalyzerBase } from '@nlpjs/sentiment';
+import LangAll from '@nlpjs/lang-all';
+import { Nlu } from '@nlpjs/nlu';
+import { Container } from '@nlpjs/core'
 
-export {
-    NlpUtil,
-    NlpManager
+class SentimentAnalyzer extends SentimentAnalyzerBase {
+  constructor(settings = {}, container?: Container) {
+    super(settings, container);
+    this.container.use(LangAll);
+    this.container.use(Nlu);
+  }
+
+  async getSentiment(utterance: string, locale = 'en', settings: [key: string]) {
+    const input = {
+      utterance,
+      locale,
+      ...settings,
+    };
+    const result = await this.process(input);
+    return result.sentiment;
+  }
 }
+
+export default SentimentAnalyzer;

@@ -21,10 +21,10 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import NlpUtil from './nlp-util';
-import NlpManager from './nlp-manager';
+import SentimentAnalyzer from './sentiment-analyzer'
+import SentimentManager from './sentiment-manager'
 
 export {
-    NlpUtil,
-    NlpManager
+  SentimentAnalyzer,
+  SentimentManager
 }

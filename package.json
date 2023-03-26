@@ -14,10 +14,24 @@
     "url": "git+https://github.com/Leoglme/node-nlp-typescript.git"
   },
   "keywords": [
-    "nlp",
     "node-nlp",
     "typescript",
-    "ai"
+    "ai",
+    "natural language processing",
+    "artifical intelligence",
+    "natural language understanding",
+    "natural language generation",
+    "NLP",
+    "NLU",
+    "NLG",
+    "sentiment analysis",
+    "classifier",
+    "logistic regression",
+    "Natural",
+    "entity extraction",
+    "named entity recognition",
+    "chatbot",
+    "bot"
   ],
   "author": "dibodev",
   "license": "MIT",
@@ -26,14 +40,25 @@
   },
   "homepage": "https://github.com/Leoglme/node-nlp-typescript#readme",
   "devDependencies": {
+    "@types/node": "^18.15.10",
     "tsup": "^6.7.0",
     "typescript": "^5.0.2"
   },
   "dependencies": {
+    "@nlpjs/builtin-duckling": "^4.26.1",
+    "@nlpjs/builtin-microsoft": "^4.26.1",
     "@nlpjs/core-loader": "^4.26.1",
+    "@nlpjs/emoji": "^4.26.1",
+    "@nlpjs/evaluator": "^4.26.1",
     "@nlpjs/lang-all": "^4.26.1",
     "@nlpjs/language": "^4.25.0",
-    "node-nlp": "^4.26.1",
-    "node-nlp-typescript": "^0.1.30"
+    "@nlpjs/neural": "^4.25.0",
+    "@nlpjs/nlg": "^4.26.1",
+    "@nlpjs/nlp": "^4.26.1",
+    "@nlpjs/nlu": "^4.26.1",
+    "@nlpjs/request": "^4.25.0",
+    "@nlpjs/sentiment": "^4.26.1",
+    "@nlpjs/similarity": "^4.26.1",
+    "@nlpjs/xtables": "^4.25.0"
   }
 }
