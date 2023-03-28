@@ -21,38 +21,12 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { Language } from './language'
-import { NlpUtil, NlpManager, NlpExcelReader } from './nlp'
-import { XTableUtils, XTable, XDoc } from './xtables'
-import { removeEmojis, Evaluator, SpellCheck, Handlebars } from './util'
-import { ActionManager, NlgManager } from './nlg'
-import { NeuralNetwork } from './classifiers'
-import { SentimentAnalyzer, SentimentManager } from './sentiment'
-// import {
-//     Recognizer,
-//     ConversationContext,
-//     MemoryConversationContext,
-// } from './recognizer'
-
-export {
-    Language,
-    NlpUtil,
-    NlpManager,
-    NlpExcelReader,
-    XTableUtils,
-    XTable,
-    XDoc,
-    removeEmojis,
-    Evaluator,
-    SpellCheck,
-    Handlebars,
-    ActionManager,
-    NlgManager,
-    NeuralNetwork,
-    SentimentAnalyzer,
-    SentimentManager,
-    // Recognizer,
-    // ConversationContext,
-    // MemoryConversationContext,
-    // BrainNLU,
-};
+// const Recognizer = require('./recognizer');
+// const ConversationContext = require('./conversation-context');
+// const MemoryConversationContext = require('./memory-conversation-context');
+//
+// module.exports = {
+//   Recognizer,
+//   ConversationContext,
+//   MemoryConversationContext,
+// };
