@@ -27,7 +27,7 @@ import {
   defaultContainer,
   containerBootstrap,
 } from '@nlpjs/core-loader';
-import LangAll from '@nlpjs/lang-all';
+import { LangAll } from '@nlpjs/lang-all';
 
 interface Cultures {
   [key: string]: string;

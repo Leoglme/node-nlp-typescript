@@ -21,27 +21,48 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import { SentimentAnalyzer as SentimentAnalyzerBase } from '@nlpjs/sentiment';
+import { containerBootstrap } from '@nlpjs/core-loader';
 import { LangAll } from '@nlpjs/lang-all';
-import { Nlu } from '@nlpjs/nlu';
-import { Container } from '@nlpjs/core'
+import { NluNeural } from '@nlpjs/nlu';
 
-class SentimentAnalyzer extends SentimentAnalyzerBase {
-  constructor(settings = {}, container?: Container) {
-    super(settings, container);
+class BrainNLU {
+  private container: any;
+  private nlu: NluNeural | undefined;
+  private readonly corpus: any[];
+  private readonly settings: any;
+
+  constructor(settings: any = {}) {
+    this.settings = settings;
+    if (!this.settings.container) {
+      this.settings.container = containerBootstrap();
+    }
+    this.container = this.settings.container;
     this.container.use(LangAll);
-    this.container.use(Nlu);
+    if (!this.settings.l) {
+      this.nlu = new NluNeural({
+        locale: this.settings.locale || this.settings.language || 'en',
+      });
+    }
+    this.corpus = [];
   }
 
-  async getSentiment(utterance: string, locale = 'en', settings: [key: string]) {
-    const input = {
-      utterance,
-      locale,
-      ...settings,
-    };
-    const result = await this.process(input);
-    return result.sentiment;
+  add(utterance: string, intent: string) {
+    this.corpus.push({ utterance, intent });
+  }
+
+  train() {
+    return this.nlu?.train(this.corpus, this.settings);
+  }
+
+  async getClassifications(utterance: string) {
+    const result = await this.nlu?.process(utterance);
+    return result?.classifications.sort((a, b) => b.score - a.score);
+  }
+
+  async getBestClassification(utterance: string) {
+    const result = await this.getClassifications(utterance);
+    return result?.[0];
   }
 }
 
-export default SentimentAnalyzer;
+export default BrainNLU;

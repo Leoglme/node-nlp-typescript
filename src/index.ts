@@ -33,6 +33,7 @@ import {
     ConversationContext,
     MemoryConversationContext,
 } from './recognizer'
+import { BrainNLU } from './nlu'
 
 export {
     Language,
@@ -54,5 +55,5 @@ export {
     Recognizer,
     ConversationContext,
     MemoryConversationContext,
-    // BrainNLU,
+    BrainNLU,
 };

@@ -28,5 +28,5 @@ declare module "@nlpjs/lang-all" {
 
 
     const LangAll: LangAll;
-    export = LangAll;
+    export { LangAll };
 }
