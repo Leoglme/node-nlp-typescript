@@ -21,6 +21,7 @@ export interface NlpManagerSettings {
     useDuckling?: boolean
     ducklingUrl?: string
     locale?: string
+    threshold?: number
   }
   action?: {
     [key: string]: (params: any, context: any, result: any) => Promise<void> | void

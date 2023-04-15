@@ -28,11 +28,11 @@ import { removeEmojis, Evaluator, SpellCheck, Handlebars } from './util'
 import { ActionManager, NlgManager } from './nlg'
 import { NeuralNetwork } from './classifiers'
 import { SentimentAnalyzer, SentimentManager } from './sentiment'
-// import {
-//     Recognizer,
-//     ConversationContext,
-//     MemoryConversationContext,
-// } from './recognizer'
+import {
+    Recognizer,
+    ConversationContext,
+    MemoryConversationContext,
+} from './recognizer'
 
 export {
     Language,
@@ -51,8 +51,8 @@ export {
     NeuralNetwork,
     SentimentAnalyzer,
     SentimentManager,
-    // Recognizer,
-    // ConversationContext,
-    // MemoryConversationContext,
+    Recognizer,
+    ConversationContext,
+    MemoryConversationContext,
     // BrainNLU,
 };
