@@ -48,7 +48,6 @@
   },
   "homepage": "https://github.com/Leoglme/node-nlp-typescript#readme",
   "devDependencies": {
-    "@types/node": "^18.15.10",
     "tsup": "^6.7.0",
     "typescript": "^5.0.2"
   },
@@ -67,6 +66,7 @@
     "@nlpjs/request": "^4.25.0",
     "@nlpjs/sentiment": "^4.26.1",
     "@nlpjs/similarity": "^4.26.1",
-    "@nlpjs/xtables": "^4.25.0"
+    "@nlpjs/xtables": "^4.25.0",
+    "@types/node": "^18.15.11"
   }
 }

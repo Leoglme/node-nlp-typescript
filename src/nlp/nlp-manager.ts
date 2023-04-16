@@ -27,6 +27,7 @@ export interface NlpManagerSettings {
     [key: string]: (params: any, context: any, result: any) => Promise<void> | void
   }
   settings?: any
+  forceNER?: boolean
   processTransformer?: (result: any) => any
 }
 
