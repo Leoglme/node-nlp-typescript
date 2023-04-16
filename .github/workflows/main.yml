@@ -54,5 +54,3 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Remove dist folder 🗑️
-        run: rm -rf dist
