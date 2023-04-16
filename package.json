@@ -1,6 +1,6 @@
 {
   "name": "node-nlp-typescript",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "nlp.js from axa-group in typescript 🚀. NLP library for building bots 🤖, with entity extraction, sentiment analysis, automatic language identification, and more. ",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
